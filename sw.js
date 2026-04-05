@@ -3,7 +3,7 @@ self.addEventListener('install', (event) => {
     caches.open('marco-inventory-v1').then((cache) => {
       return cache.addAll([
         './index.html',
-        './Inventory.json'
+        './manifest.json'
       ]);
     })
   );
