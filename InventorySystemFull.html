@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+ }
+ body {
+       height: 100vh;
+       background:black;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       padding-top: 70px;
+       gap: 30px;
+       
+ }
+.box {
+        width: 330px;
+        height: 220px;
+        background: rgba(255,255,255,0.3);
+        border-radius: 5%;
+        text-align: center;
+        padding: 45px;        
+        box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF;
+        text-shadow: 0 0 5px #00FFFF;
+}
+input {
+          padding: 12px;
+          border: 1px solid wheat;
+          border-radius: 12px;
+          font-size: 17px;
+          background: black;
+          color: cyan;   
+}
+.box-content button {
+           width: 90px;
+           font-size: 20px;
+           font-weight: bold;
+           color: cyan;
+           background: black;
+          padding: 5px;         
+          border-radius: 10px;
+          box-shadow: 0  0 10px #00FFFF, 0 0 10px #00FFFF;
+}
+.card-content {
+                     position: fixed;
+                     z-index: 1000;
+                     left: 0; top: 0;
+                     background-color: rgba(0,0,0,0.5);
+                     backdrop-filter: blur(3px);
+                     width: 100%; height: 100%;
+                     padding-top: 20px;
+                     display: none;
+                     justify-content: center;
+                     align-items: center;                            
+}
+.card {
+          height: 450px;
+          width: 300px;
+          text-align: center;
+          padding-top: 20px;
+          border-radius: 10px;
+          background: rgba(255,255,255,0.3);
+          box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+          animation: popIn 0.5s ease-out;
+          box-shadow: 0 0 10px #FF00FF, 0 0 20px #FF00FF;
+          text-shadow: 0 0 5px #00FFFF;
+}
+.card button {
+                       background: black;
+                       font-size: 25px;
+                       color: pink;
+                       font-weight: bold;
+                       width: 180px;
+                       padding: 20px;
+                       margin-top: 12px;
+                       box-shadow: 0 0 10px #FF00FF, 0 0 20px #FF00FF;
+                       text-shadow: 0 0 5px #FF00FF;
+                       
+}
+h2 {
+    color: cyan;  
+}
+.addForm {
+                     position: fixed;
+                     z-index: 2000;
+                     left: 0; top: 0;
+                     background-color: rgba(0,0,0,0.5);
+                     backdrop-filter: blur(3px);
+                     width: 100%; height: 100%;
+                     display: none;
+                     justify-content: center;
+                     align-items: center;
+}
+.add-box {
+            height: 450px;
+            width: 300px;
+            background: rgba(255,255,255,0.5);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+             text-align: center;
+             box-shadow: 0 0 20px #00FFFF, 0 0 20px #00FFFF;
+             padding-top: 10px; 
+             animation: popUp 0.5s ease-out;           
+}
+.add-box label {
+             display: flex;
+             font-weight: bold;
+             color: black;
+             text-shadow: 0 0 10px  white;
+             font-size: 20px;
+             margin-left: 25px;
+             padding: 10px;
+}
+.add-box button {
+                           color: cyan;
+                           margin: 0 10px;
+                           width: 100px
+}
+.readForm {
+                  position: fixed;
+                  z-index: 3000;
+                  left: 0; top: 0;
+                  bacground-color: rgba(0,0,0,0.5);
+                  backdrop-filter: blur(3px);
+                  width: 100%; height: 100%;
+                  display: none;
+                  justify-content: center;
+                  align-items: center;
+}
+th {
+        position: sticky;
+        top:0;
+        background-color: black;
+        z-index: 10;
+        color: #00FFFF;
+        padding:10px;
+        border-botttom: 2px solid #00FFFF;
+}
+.read-box {
+           height: 450px;
+           width: 340px;
+           background: rgba(255,255,255,0.5);
+           box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+           box-shadow: 0 0 25px #00FFFF, 0 0 20px #00FFFF; 
+           overflow-y: auto; 
+           padding: 0;   
+           animation: popIn 0.6s ease-out;
+}
+.updt-Form {
+                   position: fixed;
+                   z-index: 3000;
+                   left: 0; top: 0;
+                   background-color: rgba(0,0,0,0.5);
+                   backdrop-filter: blur(3px);
+                   width: 100%; height: 100%;
+                   display: none;
+                   justify-content: center;
+                   align-items: center;
+}
+.updt-box {
+                  height: 470px;
+                  width: 340px;
+                  background: rgba(0,0,0,0,0.8);
+                  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+                  box-shadow: 0 0 25px #00FFFF, 0 0 20px #00FFFF;
+                  animation: popIn 0.6s ease-out;            
+}
+
+.search {
+             display: flex;             
+             justify-content: center;
+             padding: 10px;
+             gap: 10px;
+
+}
+.edit h3 {
+              font-weight: bold;
+              color: cyan;
+              
+}
+.edit {
+       text-align: center;
+     
+}
+.edit label {
+                   display: flex;
+                    margin-left: 53px;
+                    font-size: 17px;
+                    font-weight: bold;
+                    color: cyan;
+ }
+ .edit button {
+                 margin: 0 16px;
+ }
+ .del-Form {
+                   position: fixed;
+                   z-index: 3000;
+                   left: 0; top: 0;
+                   background-color: rgba(0,0,0,0.5);
+                   backdrop-filter: blur(3px);
+                   width: 100%; height: 100%;
+                   display:none;
+                   justify-content: center;
+                   align-items: center;
+ }
+ .del-box {
+             height: 500px;
+             width: 340px;
+             background: rgba(0,0,0,0.8);
+             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+             box-shadow: 0 0 25px #FF4500, 0 0 20px #FF4500 ;
+             text-align: center;
+             animation: popIn 0.6s ease-out;
+ }
+ .del-box label {
+             display: flex;
+             padding: 5px;
+             margin-left: 30px;
+            font-size: 16px;
+            font-weight: bold;
+             color: red;     
+ }
+ .del-box h3 {
+          color: red;
+          margin-top: 15px;
+ }
+ .del-box button {
+            margin: 0 30px;
+            margin-top: 25px;
+            box-shadow: 0 0 25px #FF4500, 0 0 20px #FF4500;
+ }
+ 
+ .typing-container {
+ display: inline-block;
+ }
+ 
+ .typing-text {
+ color: cyan;
+ font-family: monospace;
+ overflow: hidden; /* Para hindi makita yung lumalagpas na text */
+ border-right: .10em solid green; /* Ang cursor */
+ white-space: nowrap; /* Para hindi bumaba ang text */
+ margin: 0 auto; 
+ letter-spacing: .15em; 
+ 
+ /* Ang animation: pangalan, bilis, loop */
+ animation: 
+ typing 15s steps(30, end) infinite,
+ blink-caret .75s step-end infinite;
+ 
+ width: 0; /* Simula sa walang text */
+ text-shadow: 0 0 10px cyan;
+ }
+ 
+ /* Typing Effect Logic */
+ @keyframes typing {
+ 0% { width: 0; }
+ 40% { width: 100%; } /* Natapos mag-type */
+ 60% { width: 100%; } /* Sandaling hinto (pause) */
+ 90% { width: 0; }     /* Binura na (deleting) */
+ 100% { width: 0; }    /* Balik sa simula */
+ }
+ 
+ /* Cursor Blink Logic */
+ @keyframes blink-caret {
+ from, to { border-color: transparent }
+ 50% { border-color: cyan; } /* Neon Orange Cursor */
+ }
+ 
+@keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes popUp {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+</style>
+</head>
+<body>
+<h2>WELCOME TO: </h2>
+<div class="typing-container">
+  <h2 class="typing-text">MARCO'S INVENTORY SYSTEM</h2>
+</div>
+
+<div class="box-content">
+    <div class="box">
+    <input id="user" placeholder="input username"><br><br>
+    <input id="pass"  type="password" placeholder="input password"><br><br>
+    <button onclick="btn()">LOG IN</button>
+    </div>
+<div id="content" class="card-content" oncli>
+<div class="card">
+<button onclick="add()">ADD</button><br>
+<button onclick="read()">READ</button><br>
+<button onclick="update()">UPDATE</button><br>
+<button onclick="delts()">DELETE</button><br>
+<button onclick="logout()">LOG OUT</button>
+</div>
+</div>
+
+<div id="adds" class="addForm">
+  <div class="add-box">
+  <label>Product Name</label>
+  <input id="Pname" type="text"><br>
+  <label>Product Price</label>
+  <input id="Pprice" type= "number"><br>
+  <label>Product Quantity</label>
+  <input id="Pqty" type= "number"><br>
+  <label>Category</label>
+  <input id="cty" type= "text"><br><br>
+  <button onclick="save()">SAVE</button>
+  <button onclick="closeAdd()">CLOSE</button>
+  </div>
+</div>
+
+<div id="rdpop" class="readForm" onclick="closeRead()">
+        <div class="read-box" onclick="event.stopPropagation()">
+        <table border="1" style=" width: 100%; color: yellow; border-collapse: colapse">
+        <tr>
+        <th>Id#</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Category</th>
+        </tr>
+        <tbody id="inventory-list"></tbody>
+        </table>
+        </div>
+</div>
+
+<div id="pdt" class="updt-Form">
+<div class="updt-box">
+<div class="search">
+<input  id="searchdb" placeholder=" search id" type="number" style="width: 130px">
+<button onclick="searchfunc()">SEARCH</button><br><br>
+</div>
+<div id="edit-form" class="edit">
+<h3>UPDATE ITEM</h3><br>
+ <label>Name</label>
+ <input id="name1"><br><br>
+<label>Price</label>
+<input id="price2"><br><br>
+<label>Quantity</label>
+<input id="quantity3"><br><br>
+<label>Category</label>
+<input id="category4"><br><br>
+<button onclick="saveUpdate()">UPDATE</button>
+<button onclick="closeUpdate()">CLOSE</button>
+</div>
+</div>
+</div>
+
+<div id="del-item" class="del-Form">
+ <div class="del-box">
+ <input id="search2" placeholder="SEARCH ID" style="width: 110px" type="number">
+ <button onclick="delSearch()">SEARCH</button>
+ <h3>DELETE ITEMS</h3>
+ <label>NAME</label>
+<input id="nme"><br>
+<label>PRICE</label>
+<input id="prce">
+<label>QUANTITY</label>
+<input id="qunty">
+<label>CATEGORY</label>
+<input id="ctgor"><br><br>
+<button onclick="finalDelete()">DELETE</button>
+<button onclick="delClose()">CLOSE</button>
+ </div>
+</div>
+<script>
+let data;
+let currentId = null;
+let request = indexedDB.open("Marco_int", 2);
+request.onupgradeneeded = function (e) {
+data = e.target.result;
+data.createObjectStore("items" , { keyPath: "id",  autoIncrement: true});
+};
+
+request.onsuccess = function (e) {
+ data = e.target.result;
+ alert("Data Successfully conected");
+}
+
+
+function btn() {
+let usr = document.querySelector("#user").value;
+let pss = document.querySelector("#pass").value;
+let blr = document.querySelector("#content");
+if(usr == "" || pss == "") {
+        alert("Pakipunan ng blanko bossing!!");
+}else {
+     if(usr === "Marco@33" && pss === "marco4321") {
+      blr.style.display = "flex";  
+      document.querySelector("#user").value = "";
+      document.querySelector("#pass").value =  "";      
+     }else {
+             alert("Mali ang user or password mo bossing");
+}            
+}
+}
+
+function logout() {
+if(confirm("Are you sure you want to logout")) {
+    let blr = document.querySelector("#content");
+    blr.style.display = "none";
+}
+}
+
+function add() {
+let adf = document.querySelector("#adds");
+adf.style.display= "flex";
+}
+
+function save() {
+let pName = document.querySelector("#Pname").value;
+let pPrice = document.querySelector("#Pprice").value;
+let pQty = document.querySelector("#Pqty").value; 
+let cTy = document.querySelector("#cty").value;
+if(pName == "" || pPrice == "" || pQty == "" || cTy == "") {
+     alert("Please fill in the blank")
+}else {
+let transaction = data.transaction("items", "readwrite");
+let store = transaction.objectStore("items");
+
+let entry  = {
+     productName: pName,
+     productPrice: pPrice,
+     productQuantity: pQty,
+     cateGory: cTy
+};
+store.add(entry);
+
+transaction.oncomplete = function () {
+ alert("Save Successfully!!");
+ document.querySelector("#Pname").value = "";
+ document.querySelector("#Pprice").value = "";
+ document.querySelector("#Pqty").value = "";
+ document.querySelector("#cty").value = "";
+};
+}
+}
+function closeAdd() {
+ let cls = document.querySelector("#adds");
+ cls.style.display= "none";
+}
+function read() {
+let rd = document.querySelector("#rdpop");
+rd.style.display = "flex";
+
+let tableBody = document.querySelector("#inventory-list");
+tableBody.innerHTML = "";
+ 
+ let transaction = data.transaction("items", "readonly");
+ let store = transaction.objectStore("items");
+ 
+ store.openCursor().onsuccess = function (e) {
+ let cursor = e.target.result;
+ 
+ if (cursor) {
+    let row = ` <tr style= "border-bottom: 1px solid cyan;">
+    <td style = " padding: 10px";>
+     ${cursor.value.id}</td>
+    <td style= " padding: 10px;">
+    ${cursor.value.productName}</td>
+    <td style= "padding: 10px;">₱
+    ${cursor.value.productPrice}</td>
+    <td style ="padding: 10px;">
+    ${cursor.value.productQuantity}</td>
+    <td style=" padding: 10px;">
+    ${cursor.value.cateGory}</td>
+  </tr>`;  
+  
+  tableBody.innerHTML += row;
+  cursor.continue();
+ }else {
+           
+ }
+ };
+ }
+
+function closeRead() {
+    let rd = document.querySelector("#rdpop");
+    rd.style.display = "none";
+}
+
+function update() {
+let upt = document.querySelector("#pdt");
+upt.style.display = "flex";
+}
+
+function searchfunc() {
+           let idSearch = document.querySelector("#searchdb").value;
+           let request = indexedDB.open("Marco_int", 2);
+           
+           request.onsuccess = function(event) {
+           let data = event.target.result;
+           let transaction = data.transaction(["items"], "readonly");
+           let objectStore = transaction.objectStore("items");
+           
+           let getRequest = objectStore.get(Number(idSearch));
+                 getRequest.onsuccess = function() {
+                  if(getRequest.result) {
+                  let result = getRequest.result;
+                  currentId = result.id;
+                        let data = getRequest.result;
+                        alert("Successfully data find");
+                      document.querySelector("#name1").value = data.productName; 
+                      document.querySelector("#price2").value = data.productPrice;
+                      document.querySelector("#quantity3").value = data.productQuantity;
+                      document.querySelector("#category4").value = data.cateGory;
+                     }else {
+                        alert(" No record");
+                                  
+                     }
+                 };
+           };
+           request.onerror = function() {
+             alert("Error");
+           }
+}
+
+function saveUpdate() {
+let ids = document.querySelector("#searchdb").value;
+let nm = document.querySelector("#name1").value;
+let pr = document.querySelector("#price2").value;
+let quan = document.querySelector("#quantity3").value;
+let cat = document.querySelector("#category4").value;
+if(nm == "" || pr == "" || quan == "" || cat =="" || ids =="") {
+  alert("Please Fill in the blank");
+  }else{
+    if(currentId === null) {
+        alert("Besy, mag-search ka muna ng item!");
+        return;
+    }
+
+    let transaction = data.transaction(["items"], "readwrite");
+    let store = transaction.objectStore("items");
+
+    // Kunin yung bagong values mula sa input boxes
+    let updatedEntry = {
+        id: currentId, // Kailangan ang ID para ma-overwrite
+        productName: document.querySelector("#name1").value,
+        productPrice: document.querySelector("#price2").value,
+        productQuantity: document.querySelector("#quantity3").value,
+        cateGory: document.querySelector("#category4").value
+    };
+
+    // Gamitin ang .put() para i-update
+    let request = store.put(updatedEntry);
+
+    request.onsuccess = function() {
+        alert("Success! Updated na ang item, Besy!");
+        // I-clear ang global variable at boxes
+        currentId = null;
+        document.querySelector("#name1").value = "";
+        document.querySelector("#price2").value = "";
+         document.querySelector("#quantity3").value = "";
+        document.querySelector("#category4").value = "";
+          
+    };
+}
+}
+
+function closeUpdate() {
+ let clss = document.querySelector("#pdt");
+ clss.style.display = "none";
+}
+function delts() {
+let dts = document.querySelector("#del-item");
+dts.style.display = "flex";
+}
+
+
+function delSearch() {
+    let idSearch2 = document.querySelector("#search2").value;
+    if(idSearch2 == "") { alert("Input ID muna, Besy!"); return; }
+
+    let transaction = data.transaction(["items"], "readonly");
+    let objectStore = transaction.objectStore("items");
+    let getRequest = objectStore.get(Number(idSearch2));
+
+    getRequest.onsuccess = function() {
+        if(getRequest.result) {
+            let result = getRequest.result;
+            currentId = result.id; ;
+            document.querySelector("#nme").value = result.productName; 
+            document.querySelector("#prce").value = result.productPrice;
+            document.querySelector("#qunty").value = result.productQuantity;
+            document.querySelector("#ctgor").value = result.cateGory;
+            alert("Record found! Ready to delete.");
+        } else {
+            alert("No record found, bossing.");
+        }
+    };
+} 
+
+function finalDelete() {
+    if(currentId === null) {
+        alert("Search ka muna ng item na buburahin!");
+        return;
+    }
+
+    if(confirm("ARE YOU SURE!! YOU WANT TO DELETE THIS")) {
+        let transaction = data.transaction(["items"], "readwrite");
+        let store = transaction.objectStore("items");
+        let request = store.delete(currentId);
+
+        request.onsuccess = function() {
+            alert("Deleted successfully!");
+            currentId = null;
+            // I-clear ang mga fields
+            document.querySelector("#nme").value = "";
+            document.querySelector("#prce").value = "";
+            document.querySelector("#qunty").value = "";
+            document.querySelector("#ctgor").value = "";
+            document.querySelector("#search2").value = "";
+            closeDelete();
+        };
+    }
+}
+
+function closeDelete() {
+    document.querySelector("#del-item").style.display = "none";
+}
+
+function delClose() {
+let delForm = document.querySelector("#del-item");
+delForm.style.display = "none";
+}
+
+</script>
+</body>
+</html>
