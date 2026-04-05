@@ -1,6 +1,6 @@
 {
-  "name": "Marco_Invenory System",
-  "short_name": "MarcoDB",
+  "name": "Marco_Inventory_System",
+  "short_name": "Inventor_System",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#000000",
