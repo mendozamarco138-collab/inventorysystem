@@ -663,26 +663,6 @@ function delClose() {
 let delForm = document.querySelector("#del-item");
 delForm.style.display = "none";
 }
-window.onload = function() {
-    const isLoggedIn = localStorage.getItem("isLoggedIn");
-    const activeForm = localStorage.getItem("activeForm");
-
-    if (isLoggedIn === "true") {
-        // I-hide ang Login Box, Ipakita ang Main Content
-        document.querySelector(".box-content").style.display = "none";
-        document.getElementById("content").style.display = "block";
-
-        // Kung may naalalang form na nakabukas (ADD, READ, UPDATE, o DELETE)
-        if (activeForm) {
-            document.getElementById(activeForm).style.display = "block";
-        }
-    } else {
-        // Kung hindi pa login, ipakita ang login box
-        document.querySelector(".box-content").style.display = "block";
-        document.getElementById("content").style.display = "none";
-    }
-};
-
       
 </script>
 </body>
