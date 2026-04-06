@@ -442,6 +442,8 @@ if(confirm("Are you sure you want to logout")) {
 }
 
 function add() {
+      document.getElementById("adds").style.display = "none";
+    localStorage.removeItem("activeForm"); // Burahin sa notebook
 let adf = document.querySelector("#adds");
 adf.style.display= "flex";
 }
@@ -662,7 +664,29 @@ function delClose() {
 let delForm = document.querySelector("#del-item");
 delForm.style.display = "none";
 }
+window.onload = function() {
+    // 1. Basahin ang "notebook" (localStorage)
+    const loginStatus = localStorage.getItem("isLoggedIn");
+    const hulingForm = localStorage.getItem("activeForm");
 
+    // 2. Check kung naka-login na dati
+    if (loginStatus === "true") {
+        // Itago ang login box, ipakita ang main menu
+        document.querySelector(".box-content").style.display = "none";
+        document.getElementById("content").style.display = "block";
+
+        // 3. Eto yung "Memory" para sa Form
+        if (hulingForm) {
+            // Kung may naalalang form (hal. adds, rdpop, pdt, o del-item), buksan agad!
+            document.getElementById(hulingForm).style.display = "block";
+        }
+    } else {
+        // Kung walang record na naka-login, ipakita ang login screen
+        document.querySelector(".box-content").style.display = "block";
+        document.getElementById("content").style.display = "none";
+    }
+};
+      
 </script>
 </body>
 </html>
