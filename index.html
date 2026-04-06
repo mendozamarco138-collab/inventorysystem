@@ -425,6 +425,7 @@ if(usr == "" || pss == "") {
         alert("Pakipunan ng blanko bossing!!");
 }else {
      if(usr === "Marco@33" && pss === "marco4321") {
+      localStorage.setItem("isLoggedIn", "true"); 
       blr.style.display = "flex";  
       document.querySelector("#user").value = "";
       document.querySelector("#pass").value =  "";      
