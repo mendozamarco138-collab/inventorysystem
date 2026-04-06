@@ -443,10 +443,9 @@ if(confirm("Are you sure you want to logout")) {
 }
 
 function add() {
-    document.getElementById("adds").style.display = "block";
-    localStorage.setItem("activeForm", "adds"); // Tandaan ang ID
 let adf = document.querySelector("#adds");
 adf.style.display= "flex";
+ localStorage.setItem("activeForm", "adds");
 }
 
 function save() {
