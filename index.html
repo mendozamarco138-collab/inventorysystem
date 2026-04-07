@@ -410,8 +410,10 @@ window.addEventListener("load", function() {
 const statusBox = localStorage.getItem("formStatus");
 if(statusBox === "open") {
  document.querySelector("#content").style.display = "flex";
+ document.querySelector("#adds").style.display = "flex";     
 }else {
    document.querySelector("#content").style.display = "none";
+   document.querySelector("#adds").style.display = "none";
 }
 });
 let request = indexedDB.open("Marco_int", 2);
