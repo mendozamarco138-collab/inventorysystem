@@ -408,11 +408,14 @@ let data;
 let currentId = null;
 window.addEventListener("load", function() {
 const statusBox = localStorage.getItem("formStatus");
+const current = localStorage.getItem("current");
 if(statusBox === "open") {
  document.querySelector("#content").style.display = "flex";   
-}else if(current === "adds") {
+if(current === "adds") {
       document.querySelector("#adds").style.display = "flex";
-}else {
+}
+}
+else {
    document.querySelector("#content").style.display = "none";
 }
 });
@@ -457,7 +460,7 @@ if(confirm("Are you sure you want to logout")) {
 function add() {
 let adf = document.querySelector("#adds");
 adf.style.display= "flex";
-localStorage.setItem("current");
+localStorage.setItem("current","adds");
 }
 
 function save() {
