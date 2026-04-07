@@ -435,7 +435,8 @@ if(usr == "" || pss == "") {
         alert("Pakipunan ng blanko bossing!!");
 }else {
      if(usr === "Marco@33" && pss === "marco4321") {
-      blr.style.display = "flex";  
+      blr.style.display = "flex";
+      localStorage.setItem("formStatus");
       document.querySelector("#user").value = "";
       document.querySelector("#pass").value =  "";      
      }else {
@@ -455,7 +456,6 @@ if(confirm("Are you sure you want to logout")) {
 function add() {
 let adf = document.querySelector("#adds");
 adf.style.display= "flex";
-localStorage.setItem("formStatus","open");
 }
 
 function save() {
