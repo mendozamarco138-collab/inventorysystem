@@ -494,6 +494,7 @@ transaction.oncomplete = function () {
 function closeAdd() {
  let cls = document.querySelector("#adds");
  cls.style.display= "none";
+ localStorage.removeItem("current");
 }
 function read() {
 let rd = document.querySelector("#rdpop");
