@@ -410,6 +410,8 @@ window.addEventListener("load", function() {
 const statusBox = localStorage.getItem("formStatus");
 if(statusBox === "open") {
  document.querySelector("#content").style.display = "flex";   
+}else if(statusBox === "open") {
+      document.querySelector("#adds").style.display = "flex";
 }else {
    document.querySelector("#content").style.display = "none";
 }
