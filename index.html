@@ -448,14 +448,14 @@ function logout() {
 if(confirm("Are you sure you want to logout")) {
     let blr = document.querySelector("#content");
     blr.style.display = "none";
-localStorage.setItem("formStatus");
+localStorage.setItem("formStatus", "closed");
 }
 }
 
 function add() {
 let adf = document.querySelector("#adds");
 adf.style.display= "flex";
-localStorage.setItem("formStatus");
+localStorage.setItem("formStatus", "open");
 }
 
 function save() {
