@@ -414,9 +414,9 @@ window.addEventListener("load", function() {
 const statusBox = localStorage.getItem("formStatus");
 
 if(statusBox === "open") {
-document.querySelector("content").style.display = "flex";
+document.querySelector("#content").style.display = "flex";
 }else{
- document.querySelector("content").style.display = "none";
+ document.querySelector("#content").style.display = "none";
 });
 data.createObjectStore("items" , { keyPath: "id",  autoIncrement: true});
 };
@@ -449,13 +449,14 @@ function logout() {
 if(confirm("Are you sure you want to logout")) {
     let blr = document.querySelector("#content");
     blr.style.display = "none";
- localStorage.setItem("formStatus");
+localStorage.setItem("formStatus");
 }
 }
 
 function add() {
 let adf = document.querySelector("#adds");
 adf.style.display= "flex";
+localStorage.setItem("formStatus");
 }
 
 function save() {
