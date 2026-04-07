@@ -406,18 +406,17 @@ th {
     
 let data;
 let currentId = null;
+window.addEventListener("load", function() {
+const statusBox = localStorage.getItem("formStatus");
+if(statusBox === "open") {
+ document.querySelector("#content").style.display = "flex";
+}else {
+   document.querySelector("#content").style.display = "none";
+}
+});
 let request = indexedDB.open("Marco_int", 2);
 request.onupgradeneeded = function (e) {
 data = e.target.result;
-
-window.addEventListener("load", function() {
-const statusBox = localStorage.getItem("formStatus");
-
-if(statusBox === "open") {
-document.querySelector("#content").style.display = "flex";
-}else{
- document.querySelector("#content").style.display = "none";
-});
 data.createObjectStore("items" , { keyPath: "id",  autoIncrement: true});
 };
 
