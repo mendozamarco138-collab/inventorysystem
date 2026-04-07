@@ -410,7 +410,7 @@ window.addEventListener("load", function() {
 const statusBox = localStorage.getItem("formStatus");
 if(statusBox === "open") {
  document.querySelector("#content").style.display = "flex";   
-}else if(statusBox === "open") {
+}else if(current === "adds") {
       document.querySelector("#adds").style.display = "flex";
 }else {
    document.querySelector("#content").style.display = "none";
@@ -457,7 +457,7 @@ if(confirm("Are you sure you want to logout")) {
 function add() {
 let adf = document.querySelector("#adds");
 adf.style.display= "flex";
-localStorage.setItem("formStatus","open");
+localStorage.setItem("current");
 }
 
 function save() {
